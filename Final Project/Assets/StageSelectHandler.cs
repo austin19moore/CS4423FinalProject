@@ -15,6 +15,16 @@ public class StageSelectHandler : MonoBehaviour
         SceneManager.LoadScene("Stage1");
     }
 
+    public void Stage2Button() {
+        GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("Stage2");
+    }
+
+    public void FinalStageButton() {
+        GetComponent<AudioSource>().Play();
+        SceneManager.LoadScene("FinalStage");
+    }
+
     public void ReturnButton() {
         GetComponent<AudioSource>().Play();
         SceneManager.LoadScene("MainMenu");

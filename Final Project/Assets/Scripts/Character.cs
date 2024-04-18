@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -5,6 +6,7 @@ public class Character : MonoBehaviour
 
     Rigidbody2D rb;
     [SerializeField] LayerMask terrain;
+    [SerializeField] AnimationHandler animationHandler;
     bool ifLighter = false;
 
     // Start is called before the first frame update
@@ -18,7 +20,7 @@ public class Character : MonoBehaviour
     }
 
     public void Jump() {
-        if (Physics2D.OverlapCircleAll(transform.position + new Vector3(0, -1f, 0), .38f, terrain).Length > 0) {
+        if (Physics2D.OverlapCircleAll(transform.position + new Vector3(0, -.5f, 0), .20f, terrain).Length > 0) {
             GetComponent<AudioSource>().Play();
             rb.AddForce(Vector3.up * 8f, ForceMode2D.Impulse);
         }
@@ -35,6 +37,13 @@ public class Character : MonoBehaviour
         if (rb.velocity.magnitude < 4f) {
             rb.AddForce(v * .08f, ForceMode2D.Impulse);
         }
+
+        if (v.x != 0) {
+            animationHandler.ChangeAnimation("Walk");
+        } else {
+            animationHandler.ChangeAnimation("Idle");
+        }
+        
         
     }
 

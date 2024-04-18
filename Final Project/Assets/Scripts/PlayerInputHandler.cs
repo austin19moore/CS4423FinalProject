@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,13 @@ public class PlayerInputHandler : MonoBehaviour
 {
 
     [SerializeField] Character player;
+    [SerializeField] ProjectileThrower projectileThrower;
+    [SerializeField] bool canShootProjectiles = false;
 
+    internal void SetShoot(bool v)
+    {
+        canShootProjectiles = v;
+    }
 
     void Update() {
 
@@ -27,12 +34,15 @@ public class PlayerInputHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
             // menu
-            SceneManager.LoadScene("Tutorial");
+            string currScene = SceneManager.GetActiveScene().name;
+            SceneManager.LoadScene(currScene);
+        }
+        if (Input.GetKeyDown(KeyCode.E) && canShootProjectiles) {
+            projectileThrower.Launch(Input.mousePosition);
         }
 
-        if (input != Vector3.zero) {
-            player.Move(input);
-        }
+        player.Move(input);
+        
 
     }
 
