@@ -19,7 +19,7 @@ public class Stage2CompleteBoxHandler : MonoBehaviour
     {
         
         if (Physics2D.OverlapCircleAll(transform.position, 1.2f, Player).Length > 0) {
-            SceneManager.LoadScene("FinalStage");
+            SceneManager.LoadScene("chamber");
         }
 
     }

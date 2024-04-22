@@ -7,6 +7,7 @@ TagManager:
   - destroyable
   - torch
   - evilViolet
+  - counter
   layers:
   - Default
   - TransparentFX
