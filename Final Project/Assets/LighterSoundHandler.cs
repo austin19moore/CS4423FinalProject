@@ -5,20 +5,26 @@ using UnityEngine;
 
 public class LighterSoundHandler : MonoBehaviour
 {
+    GameObject text;
+    void Start() {
+        text = GameObject.Find("Canvas");
+        text.SetActive(false);
+    }
+
     public void Play()
     {
         GetComponent<AudioSource>().Play();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    IEnumerator WaitText() {
+        text.SetActive(true);
+        yield return new WaitForSeconds(5);
+        text.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void HandleText() {
+        StartCoroutine(WaitText());
     }
+
+
 }

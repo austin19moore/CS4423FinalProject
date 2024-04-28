@@ -6,23 +6,30 @@ using UnityEngine.SceneManagement;
 public class MainMenuHandler : MonoBehaviour
 {
 
+    private MenuAudioHandler ah;
+
+    void Start() {
+        ah = GameObject.Find("MenuAudioHandler").GetComponent<MenuAudioHandler>();
+    }
+
+
     public void StartButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("Tutorial");
     }
 
     public void StageSelectButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("StageSelect");
     }
 
     public void SettingsButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("Settings");
     }
     
     public void QuitButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         Application.Quit();
     }
 }

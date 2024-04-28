@@ -21,6 +21,7 @@ public class lighterHandler : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F)) {
                 sh.Play();
+                sh.HandleText();
                 // pickup
                 character.SetLighter(true);
                 // picking up lighter

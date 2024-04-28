@@ -5,28 +5,38 @@ using UnityEngine.SceneManagement;
 
 public class StageSelectHandler : MonoBehaviour
 {
+    private MenuAudioHandler ah;
+
+    void Start() {
+        ah = GameObject.Find("MenuAudioHandler").GetComponent<MenuAudioHandler>();
+    }
     public void TutorialButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("Tutorial");
     }
 
     public void Stage1Button() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("Stage1");
     }
 
     public void Stage2Button() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("Stage2");
     }
 
+    public void ChamberButton() {
+        ah.PlaySound();
+        SceneManager.LoadScene("Chamber");
+    }
+
     public void FinalStageButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("FinalStage");
     }
 
     public void ReturnButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("MainMenu");
     }
 }

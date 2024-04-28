@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SettingsHandler : MonoBehaviour
 {
+    private MenuAudioHandler ah;
+
+    void Start() {
+        ah = GameObject.Find("MenuAudioHandler").GetComponent<MenuAudioHandler>();
+    }
     public void ReturnButton() {
-        GetComponent<AudioSource>().Play();
+        ah.PlaySound();
         SceneManager.LoadScene("MainMenu");
     }
 }

@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.drag = 0f;
-        rb.angularDrag = .2f;
+        rb.angularDrag = 3.5f;
         rb.gravityScale = 2;
         rb.isKinematic = false;
     }
@@ -34,8 +34,8 @@ public class Character : MonoBehaviour
             GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        if (rb.velocity.magnitude < 4f) {
-            rb.AddForce(v * .08f, ForceMode2D.Impulse);
+        if (rb.velocity.magnitude < 3.5f) {
+            rb.AddForce(v * .06f, ForceMode2D.Impulse);
         }
 
         if (v.x != 0) {

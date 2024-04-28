@@ -7,15 +7,19 @@ public class ProjectileHandler : MonoBehaviour
 {
     GameObject evilCollisionHandler;
     Rigidbody2D rb;
-    GameObject cm;
+    LayerMask Terrain;
 
     void Start() {
         evilCollisionHandler = GameObject.FindWithTag("evilViolet");
         rb = GetComponent<Rigidbody2D>();
-        cm = GameObject.Find("countManager");
+        Terrain = LayerMask.GetMask("terrain");
     }
 
-
+    void Update() {
+        if (Physics2D.OverlapCircleAll(transform.position, .35f, Terrain).Length > 0) {
+                Destroy(this.gameObject);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D col) {
 
