@@ -39,7 +39,7 @@ public class EvilCollisionHandler : MonoBehaviour
             print("Hit!!!");
             playerhealth -= 1;
             if (playerhealth <= 0) {
-                SceneManager.LoadScene("Stage3");
+                SceneManager.LoadScene("FinalStage");
             }
             playerHP.text = "Player HP - " + playerhealth;
         }
